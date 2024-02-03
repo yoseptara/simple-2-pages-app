@@ -39,8 +39,9 @@ class ContactListCubit extends Cubit<ContactListState> {
     emit(state.update(contacts: [...state.contacts, newContact]));
   }
 
-  void editContact({required int index, required ContactModel updatedContact}) {
+  void editContact(ContactModel updatedContact) {
    final contacts = List.of(state.contacts);
+   final index = contacts.lastIndexWhere((element) => element.id == updatedContact.id,);
    contacts[index] = updatedContact;
 
    emit(state.update(contacts: contacts));

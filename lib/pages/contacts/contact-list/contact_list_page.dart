@@ -13,11 +13,9 @@ class ContactListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Builder(
-      builder: (context) {
-        return const _View();
-      }
-    );
+    return Builder(builder: (context) {
+      return const _View();
+    });
   }
 }
 
@@ -50,28 +48,24 @@ class _View extends StatelessWidget {
           ),
         ),
         actions: [
-          Builder(
-            builder: (context) {
-              return IconButton(
-                icon: const Icon(
-                  Icons.add,
-                  size: 36,
-                  color: kClrFF8C00,
-                ),
-                // Left-side icon (e.g., menu icon)
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => CreateOrEditContactPage(
-                        contactListCubit: context.read<ContactListCubit>(),
-                      ),
-                    ),
-                  );
-                },
-              );
-            }
-          ),
+          Builder(builder: (context) {
+            return IconButton(
+              icon: const Icon(
+                Icons.add,
+                size: 36,
+                color: kClrFF8C00,
+              ),
+              // Left-side icon (e.g., menu icon)
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const CreateOrEditContactPage(),
+                  ),
+                );
+              },
+            );
+          }),
         ],
       ),
       body: const _ContactList(),
@@ -123,8 +117,7 @@ class _ContactList extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                           builder: (context) => CreateOrEditContactPage(
-                            contactListCubit: context.read<ContactListCubit>(),
-                            contactIndex: index,
+                            contact: contact,
                           ),
                         ),
                       );

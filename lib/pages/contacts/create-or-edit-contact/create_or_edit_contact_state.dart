@@ -27,6 +27,11 @@ class CreateOrEditContactState {
   factory CreateOrEditContactState.initial(ContactModel? contact) {
     return CreateOrEditContactState(
       initContact: contact,
+      firstName: contact?.firstName ?? '',
+      lastName: contact?.lastName ?? '',
+      email: contact?.email,
+      phoneNum: contact?.phoneNumber,
+      dob: contact?.dob,
     );
   }
 
